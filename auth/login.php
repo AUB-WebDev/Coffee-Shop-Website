@@ -2,6 +2,10 @@
     require "../includes/header.php";
     require "../config/config.php";
 
+    if(isset($_SESSION['username'])){
+        header('Location: ../index.php');
+    }
+
     if (isset($_POST['btn_submit'])) {
 
         $email = $_POST['email'];
