@@ -73,7 +73,9 @@ try {
                                         </a>
                                     </td>
                                     <td class="image-prod">
-                                        <div class="img" style="background-image:url('../images/<?php echo htmlspecialchars($cart_item->product_image); ?>');"></div>
+                                        <a href="product-single.php?id=<?php echo $cart_item->product_id; ?>">
+                                            <div class="img" style="background-image:url('../images/<?php echo htmlspecialchars($cart_item->product_image); ?>');"></div>
+                                        </a>
                                     </td>
                                     <td class="product-name">
                                         <h3><?php echo htmlspecialchars($cart_item->product_name); ?></h3>
