@@ -1,7 +1,10 @@
 <?php
     require('../config/config.php');
+    // Start session if not already started
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
-    //TODO: fix this feature, it's not deleting from database
     if(isset($_SESSION['username'])){
         if ($_GET['id']){
             $product_id = $_GET['id'];
@@ -12,10 +15,15 @@
 
             if ($delete->execute()) {
                 header('Location: cart.php');
+                exit();
             }else{
                 echo "Error deleting record";
             }
+        }else{ //if the id is invalid
+            header('Location: cart.php');
+            exit();
         }
     }else{
         header('Location: ../auth/login.php');
+        exit();
     }

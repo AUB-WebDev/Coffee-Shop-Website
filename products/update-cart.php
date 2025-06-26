@@ -13,6 +13,7 @@ header('Content-Type: application/json');
 if (!isset($_SESSION['username'])) {
     http_response_code(401); // Unauthorized
     echo json_encode(['status' => 'error', 'message' => 'Not logged in']);
+    header('Location: ../auth/login.php');
     exit();
 }
 
@@ -20,6 +21,7 @@ if (!isset($_SESSION['username'])) {
 if (empty($_GET['quantity']) || empty($_GET['cart_id'])) {
     http_response_code(400); // Bad request
     echo json_encode(['status' => 'error', 'message' => 'Missing parameters']);
+    header('Location: cart.php');
     exit();
 }
 

@@ -51,8 +51,8 @@ try {
                     <table class="table">
                         <thead class="thead-primary">
                         <tr class="text-center">
-                            <th>&nbsp;</th>
-                            <th>&nbsp;</th>
+                            <th>&nbsp#</th>
+                            <th></th>
                             <th>Product</th>
                             <th>Price</th>
                             <th>Quantity</th>
@@ -68,7 +68,7 @@ try {
                             <?php foreach ($cart as $cart_item) : ?>
                                 <tr class="text-center">
                                     <td class="product-remove">
-                                        <a href="delete_from_cart.php?id=<?php echo $cart_item->cart_id; ?>" onclick="return confirm('Do you want to remove this product?')">
+                                        <a href="delete_from_cart.php?id=<?php echo $cart_item->product_id; ?>" onclick="return confirm('Do you want to remove this product?')">
                                             <span class="icon-close"></span>
                                         </a>
                                     </td>
