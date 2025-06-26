@@ -27,6 +27,16 @@ try {
     header('Location: ../error.php');
     exit();
 }
+
+
+
+if(isset($_POST['btn_checkout'])) {
+
+    $_SESSION['total_price'] =  $total;
+    header('Location: checkout.php');
+    exit();
+
+}
 ?>
 
 <section class="home-slider owl-carousel">
@@ -98,31 +108,33 @@ try {
         </div>
 
         <?php if(!empty($cart)): ?>
-            <div class="row justify-content-end">
-                <div class="col col-lg-3 col-md-6 mt-5 cart-wrap ftco-animate">
-                    <div class="cart-total mb-3">
-                        <h3>Cart Totals</h3>
-                        <p class="d-flex">
-                            <span>Subtotal</span>
-                            <span>$<?php echo number_format($subtotal, 2); ?></span>
-                        </p>
-                        <p class="d-flex">
-                            <span>Delivery</span>
-                            <span>$<?php echo number_format($delivery, 2); ?></span>
-                        </p>
-                        <p class="d-flex">
-                            <span>Discount</span>
-                            <span>$<?php echo number_format($discount, 2); ?></span>
-                        </p>
-                        <hr>
-                        <p class="d-flex total-price">
-                            <span>Total</span>
-                            <span>$<?php echo number_format($total, 2); ?></span>
-                        </p>
+            <form action="cart.php" method="POST">
+                <div class="row justify-content-end">
+                    <div class="col col-lg-3 col-md-6 mt-5 cart-wrap ftco-animate">
+                        <div class="cart-total mb-3">
+                            <h3>Cart Totals</h3>
+                            <p class="d-flex">
+                                <span>Subtotal</span>
+                                <span>$<?php echo number_format($subtotal, 2); ?></span>
+                            </p>
+                            <p class="d-flex">
+                                <span>Delivery</span>
+                                <span>$<?php echo number_format($delivery, 2); ?></span>
+                            </p>
+                            <p class="d-flex">
+                                <span>Discount</span>
+                                <span>$<?php echo number_format($discount, 2); ?></span>
+                            </p>
+                            <hr>
+                            <p class="d-flex total-price">
+                                <span>Total</span>
+                                <span>$<?php echo number_format($total, 2); ?></span>
+                            </p>
+                        </div>
+                        <input type="submit" name="btn_checkout" class="btn btn-primary py-3 px-4" value="Proceed to Checkout">
                     </div>
-                    <p class="text-center"><a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
                 </div>
-            </div>
+            </form>
         <?php endif; ?>
     </div>
 </section>
