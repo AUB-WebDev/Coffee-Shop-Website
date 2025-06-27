@@ -13,36 +13,55 @@ require '../config/config.php';
     }
 
     if(isset($_POST['btn_order'])) {
-        $total          = $_SESSION['total_price'];
-        $user_id        = $_SESSION['user_id'];
-        $first_name     = $_POST['firstname'];
-        $last_name      = $_POST['lastname'];
-        $state          = $_POST['state'];
-        $street_address = $_POST['streetaddress'];
-        $apartment      = $_POST['apartment_unit'];
-        $town           = $_POST['town'];
-        $zipcode        = $_POST['zipcode'];
-        $phone          = $_POST['phone'];
-        $email          = $_POST['email'];
-        $status          = 'pending';
+        // Store form data in session if submitted (before payment)
+        $_SESSION['order_data'] = [
+            'first_name'     => $_POST['firstname'],
+            'last_name'      => $_POST['lastname'],
+            'state'          => $_POST['state'],
+            'street_address' => $_POST['streetaddress'],
+            'apartment'      => $_POST['apartment_unit'],
+            'town'           => $_POST['town'],
+            'zipcode'       => $_POST['zipcode'],
+            'phone'         => $_POST['phone'],
+            'email'         => $_POST['email'],
+            'user_id'       => $_SESSION['user_id'],
+            'total_price'   => $_SESSION['total_price']
+        ];
 
-        $insert = $pdo -> prepare('insert into orders(first_name, last_name, state, street_address,
-                   apartment_unit, town, zip_code, phone, email, user_id, status, total_price) values(:first_name, 
-                   :last_name, :state, :street_address, :apartment_unit, :town, :zip_code, :phone, :email, 
-                   :user_id, :status, :total_price)');
+        // Redirect to payment page
+        header('Location: ../payment/pay.php');
+        exit();
 
-        $insert->bindValue(':first_name', $first_name);
-        $insert->bindValue(':last_name', $last_name);
-        $insert->bindValue(':state', $state);
-        $insert->bindValue(':street_address', $street_address);
-        $insert->bindValue(':apartment_unit', $apartment);
-        $insert->bindValue(':town', $town);
-        $insert->bindValue(':zip_code', $zipcode);
-        $insert->bindValue(':phone', $phone);
-        $insert->bindValue(':email', $email);
-        $insert->bindValue(':user_id', $user_id);
-        $insert->bindValue(':status', $status   );
-        $insert->bindValue(':total_price', $total);
+//        $total          = $_SESSION['total_price'];
+//        $user_id        = $_SESSION['user_id'];
+//        $first_name     = $_POST['firstname'];
+//        $last_name      = $_POST['lastname'];
+//        $state          = $_POST['state'];
+//        $street_address = $_POST['streetaddress'];
+//        $apartment      = $_POST['apartment_unit'];
+//        $town           = $_POST['town'];
+//        $zipcode        = $_POST['zipcode'];
+//        $phone          = $_POST['phone'];
+//        $email          = $_POST['email'];
+//        $status          = 'pending';
+//
+//        $insert = $pdo -> prepare('insert into orders(first_name, last_name, state, street_address,
+//                   apartment_unit, town, zip_code, phone, email, user_id, status, total_price) values(:first_name,
+//                   :last_name, :state, :street_address, :apartment_unit, :town, :zip_code, :phone, :email,
+//                   :user_id, :status, :total_price)');
+//
+//        $insert->bindValue(':first_name', $first_name);
+//        $insert->bindValue(':last_name', $last_name);
+//        $insert->bindValue(':state', $state);
+//        $insert->bindValue(':street_address', $street_address);
+//        $insert->bindValue(':apartment_unit', $apartment);
+//        $insert->bindValue(':town', $town);
+//        $insert->bindValue(':zip_code', $zipcode);
+//        $insert->bindValue(':phone', $phone);
+//        $insert->bindValue(':email', $email);
+//        $insert->bindValue(':user_id', $user_id);
+//        $insert->bindValue(':status', $status   );
+//        $insert->bindValue(':total_price', $total);
 
 //        if($insert->execute()) {
 //            header('Location: checkout.php');
@@ -50,7 +69,7 @@ require '../config/config.php';
 //        }else{
 //
 //        }
-        $insert->execute();
+//        $insert->execute();
 
     }
 

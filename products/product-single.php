@@ -24,7 +24,7 @@
 
 
     }else{
-        header('Location: ../index.php');
+        header('Location: ../404.php');
         exit();
     }
 
@@ -39,6 +39,7 @@
             $select_from_cart->execute();
             $select_cart = $select_from_cart->fetch(PDO::FETCH_OBJ);
             if($select_cart){
+
                 $new_qty = $select_cart->qty + $_POST['qty'];
                 $insert_cart = $pdo->prepare('update cart set qty = :new_qty WHERE user_id = :user_id AND product_id = :product_id');
                 $insert_cart->bindParam(":user_id", $_SESSION['user_id']);
