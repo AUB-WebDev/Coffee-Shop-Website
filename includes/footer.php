@@ -90,7 +90,6 @@
 <script src="../js/jquery.stellar.min.js"></script>
 <script src="../js/owl.carousel.min.js"></script>
 <script src="../js/jquery.magnific-popup.min.js"></script>
-<script src="../js/aos.js"></script>
 <script src="../js/jquery.animateNumber.min.js"></script>
 <script src="../js/bootstrap-datepicker.js"></script>
 <script src="../js/jquery.timepicker.min.js"></script>
