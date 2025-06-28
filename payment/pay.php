@@ -70,6 +70,7 @@ if(!isset($_SESSION['order_data']) || !isset($_SESSION['total_price'])) {
                     .then(data => {
                         if(data.success) {
                             window.location.href = 'order_success.php?order_id=' + data.order_id;
+                            //TODO: Add remove from cart or save the cart info in another table before removing
                         } else {
                             alert('Payment processed but order failed. Please contact support.');
                         }

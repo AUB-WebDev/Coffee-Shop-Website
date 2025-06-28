@@ -125,6 +125,7 @@
                                 <span class="input-group-btn ml-2">
                                 <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
                                  <i class="icon-plus"></i>
+                                    //TODO: Implement this add button
                              </button>
                             </span>
                             </div>
