@@ -47,7 +47,7 @@
                         <a class="nav-link" href="show-products.php" style="margin-left: 20px;">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="orders-admins/show-orders.html" style="margin-left: 20px;">Orders</a>
+                        <a class="nav-link" href="show-orders.php" style="margin-left: 20px;">Orders</a>
                     </li>
 
                     <li class="nav-item">
