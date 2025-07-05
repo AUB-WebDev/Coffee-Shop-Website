@@ -13,9 +13,12 @@ $products = $select->fetchAll(PDO::FETCH_OBJ);
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title mb-4 d-inline">Foods</h5>
-                        <a href="create-products.php" class="btn btn-primary mb-4 text-center float-right">Create
-                            Product</a>
+                        <h5 class="card-title mb-4 d-inline">View Products</h5>
+                        <?php if($_SESSION['admin_role'] == 'admin'): ?>
+                            <a href="create-products.php" class="btn btn-primary mb-4 text-center float-right">Create
+                                Product</a>
+                        <?php endif; ?>
+
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -33,11 +36,10 @@ $products = $select->fetchAll(PDO::FETCH_OBJ);
                                     <tr>
                                         <td ><?php echo $counter++; ?></td>
                                         <td><?php echo $product -> product_name; ?></td>
-                                        <!--                                    change this to the upload folder path in the future-->
-                                        <td><img src="../images/<?php echo $product -> product_image; ?>" style="height: 60px; width: 60px;"></td>
+                                        <td><img src="../uploads/<?php echo $product -> product_image; ?>" style="height: 60px; width: 60px;"></td>
                                         <td>$<?php echo $product -> price; ?></td>
                                         <td><?php echo $product -> type; ?></td>
-                                        <?php if($_SESSION['admin_role'] == 'admin'): ?>:?>
+                                        <?php if($_SESSION['admin_role'] == 'admin'): ?>
                                             <td>
                                                 <a href="edit-product.php?id=<?php echo $product -> product_id; ?>" class="btn btn-warning">Edit</a>
                                                 <a href="delete-product.php?id=<?php echo $product -> product_id; ?>" class="btn btn-danger">Delete</a>

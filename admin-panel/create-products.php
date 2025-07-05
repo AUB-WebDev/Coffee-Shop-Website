@@ -13,9 +13,14 @@ if(isset($_POST['submit'])){
     $price = $_POST['price'];
     $description = $_POST['description'];
     $category = $_POST['category'];
-    //TODO: save the uploaded image to a folder uploads/ or something else
-    $image = $_FILES['image']['name'];
-
+    // Check if new image uploaded
+    if (!empty($_FILES['image']['name'])) {
+        $image = $_FILES['image']['name'];
+        $target = "../uploads/" . basename($image);
+        move_uploaded_file($_FILES['image']['tmp_name'], $target);
+    } else {
+        $image = null;
+    }
     $insert = $pdo ->prepare("INSERT INTO products(product_name, product_image, description, price, type) values(:product_name,:product_image,:description,:price,:type)");
     $insert->bindParam(':product_name', $name);
     $insert->bindParam(':product_image', $image);
