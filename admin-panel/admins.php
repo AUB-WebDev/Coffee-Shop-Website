@@ -34,7 +34,7 @@
                 <?php $counter = 1; ?>
                 <?php foreach($users as $user): ?>
                   <tr>
-                    <td></td><?php echo $counter++; ?></td>
+                    <td><?php echo $counter++; ?></td>
                     <td><?php echo $user -> username; ?></td>
                     <td><?php echo $user -> email; ?></td>
                     <td><?php echo $user -> role; ?></td>

@@ -15,7 +15,7 @@ $products = $select->fetchAll(PDO::FETCH_OBJ);
                     <div class="card-body">
                         <h5 class="card-title mb-4 d-inline">Foods</h5>
                         <a href="create-products.php" class="btn btn-primary mb-4 text-center float-right">Create
-                            Products</a>
+                            Product</a>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -37,10 +37,12 @@ $products = $select->fetchAll(PDO::FETCH_OBJ);
                                         <td><img src="../images/<?php echo $product -> product_image; ?>" style="height: 60px; width: 60px;"></td>
                                         <td>$<?php echo $product -> price; ?></td>
                                         <td><?php echo $product -> type; ?></td>
-                                        <td>
-                                            <a href="#" class="btn btn-warning">Edit</a>
-                                            <a href="#" class="btn btn-danger">Delete</a>
-                                        </td>
+                                        <?php if($_SESSION['admin_role'] == 'admin'): ?>:?>
+                                            <td>
+                                                <a href="edit-product.php?id=<?php echo $product -> product_id; ?>" class="btn btn-warning">Edit</a>
+                                                <a href="delete-product.php?id=<?php echo $product -> product_id; ?>" class="btn btn-danger">Delete</a>
+                                            </td>
+                                        <?php endif; ?>
                                     </tr>
                                 <?php endforeach; ?>
                                 </tbody>
