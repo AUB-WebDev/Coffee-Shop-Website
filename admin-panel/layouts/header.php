@@ -41,10 +41,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="admins.php" style="margin-left: 20px;">Users</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="products-admins/show-products.html" style="margin-left: 20px;">Products</a>
-                        </li>
+
                     <?php endif; ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="show-products.php" style="margin-left: 20px;">Products</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="orders-admins/show-orders.html" style="margin-left: 20px;">Orders</a>
                     </li>
