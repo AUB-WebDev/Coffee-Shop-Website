@@ -19,11 +19,11 @@
                 $_SESSION['admin_email'] = $fetch['email'];
                 $_SESSION['admin_username'] = $fetch['username'];
                 $_SESSION['admin_id'] = $fetch['admin_id'];
-
-                var_dump($_SESSION);
+                $_SESSION['admin_role'] = $fetch['role'];
 
                 header("Location: index.php");
                 exit();
+
 
             }else{
                 echo "<script> alert('Your Email or Password is incorrect!');</script>";

@@ -1,15 +1,23 @@
 <?php
+
     require 'layouts/header.php';
+    require "../config/config.php";
+
+
+    $num_product = $pdo ->query('SELECT count(*) FROM products')->fetchColumn();
+    $num_order = $pdo ->query('SELECT count(*) FROM orders')->fetchColumn();
+    $num_booking = $pdo ->query('SELECT count(*) FROM bookings')->fetchColumn();
+    $num_admin =  $pdo ->query('SELECT count(*) FROM tbl_admin')->fetchColumn();
+
 ?>
     <div class="container-fluid">
-            This is index.php
       <div class="row">
         <div class="col-md-3">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Products</h5>
               <!-- <h6 class="card-subtitle mb-2 text-muted">Bootstrap 4.0.0 Snippet by pradeep330</h6> -->
-              <p class="card-text">number of products: 8</p>
+              <p class="card-text">number of products: <?php echo $num_product;?></p>
              
             </div>
           </div>
@@ -19,7 +27,7 @@
             <div class="card-body">
               <h5 class="card-title">Orders</h5>
               
-              <p class="card-text">number of orders: 4</p>
+              <p class="card-text">number of orders: <?php echo $num_order;?></p>
               
             </div>
           </div>
@@ -29,7 +37,7 @@
             <div class="card-body">
               <h5 class="card-title">Bookings</h5>
               
-              <p class="card-text">number of bookings: 4</p>
+              <p class="card-text">number of bookings: <?php echo $num_booking;?></p>
               
             </div>
           </div>
@@ -39,7 +47,7 @@
             <div class="card-body">
               <h5 class="card-title">Admins</h5>
               
-              <p class="card-text">number of admins: 3</p>
+              <p class="card-text">number of admins: <?php echo $num_admin;?></p>
               
             </div>
           </div>
