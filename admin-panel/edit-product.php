@@ -2,6 +2,7 @@
 require('layouts/header.php');
 require('../config/config.php');
 
+
 if ($_SESSION['admin_role'] != 'admin') {
     header('location: index.php');
     exit();
